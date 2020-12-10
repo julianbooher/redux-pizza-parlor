@@ -11,6 +11,9 @@ import logger from 'redux-logger';
 
 const checkoutReducer = (state = [], action) => {
     // TODO action types
+    if(action.type === 'ADD_PIZZA'){
+        return [...state, action.payload];
+    }
 
     return state
 };
