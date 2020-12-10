@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './App.css';
+import PizzaList from '../PizzaList/PizzaList';
+
+// Redux stuff
+import { HashRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -9,12 +14,18 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
         </header>
-        <br/>
-        <img src="images/pizza_photo.png"/>
+        <Router>
+        <Route path="/" component={PizzaList}/>
+        {/* <Route path="/customerInfo" component={CustomerInfo}/> */}
+        {/* <Route path="/checkout" component={Checkout}/> */}
+        {/* <Route path="/admin" component={Admin}/> */}
+        <img src="images/pizza_photo.png" alt="Pizza yum"/>
         <p>Pizza is great.</p>
+        </Router>
       </div>
     );
   }
 }
 
-export default App;
+const putStateOnProps = (reduxState) => ({reduxState});
+export default connect(putStateOnProps)(App);
