@@ -5,11 +5,26 @@ import { connect } from 'react-redux';
 
 class PizzaListItem extends Component {
 
-clickPizza = () => {
-    console.log('Pizza button working', this.props.pizza);
+    state = {
+        selected: false
+    }
+
+addPizza = () => {
+    console.log('addPizza button working', this.props.pizza);
     this.props.dispatch({type: 'ADD_PIZZA', payload: this.props.pizza})
-    console.log('inside clickPizza', this.props.reduxState)
+    this.setState({
+        selected: true
+    })
 }
+
+removePizza = () => {
+    console.log('removePizza button working', this.props.pizza);
+    this.props.dispatch({type: 'REMOVE_PIZZA', payload: this.props.pizza.id})
+    this.setState({
+        selected: false
+    })
+}
+
 
     render() {
         return (
@@ -18,7 +33,10 @@ clickPizza = () => {
                 <img alt={this.props.pizza.name} src={this.props.pizza.image_path}/>
                 <p>{this.props.pizza.description}</p>
                 <p>{this.props.pizza.price}</p>
-                <button onClick={this.clickPizza}>ADD</button>
+                {this.state.selected ?
+                    <button onClick={this.removePizza}>REMOVE</button> :
+                    <button onClick={this.addPizza}>ADD</button>
+                }
             </div>
         )
     }

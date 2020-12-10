@@ -14,9 +14,15 @@ const checkoutReducer = (state = [], action) => {
     if(action.type === 'ADD_PIZZA'){
         return [...state, action.payload];
     }
+    if(action.type === 'REMOVE_PIZZA'){
+        let returnState = state.filter(pizza => pizza.id !== action.payload)
+        return [...returnState]
+    }
 
     return state
 };
+
+
 
 const contactInfoReducer = (state = [], action) => {
     //TODO action types
