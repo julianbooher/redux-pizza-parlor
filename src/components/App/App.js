@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 // import axios from 'axios';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
-import CustomerInfo from '../CustomerInfo/CustomerInfo'
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
+import Checkout from '../Checkout/Checkout';
 
 // Redux stuff
 import { HashRouter as Router, Route } from 'react-router-dom';
@@ -18,7 +19,7 @@ class App extends Component {
         <Router>
         <Route exact path="/" component={PizzaList}/>
         <Route path="/customerInfo" component={CustomerInfo}/>
-        {/* <Route path="/checkout" component={Checkout}/> */}
+        <Route path="/checkout" component={Checkout}/>
         {/* <Route path="/admin" component={Admin}/> */}
         </Router>
       </div>
