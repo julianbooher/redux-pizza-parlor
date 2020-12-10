@@ -19,8 +19,6 @@ class App extends Component {
         {/* <Route path="/customerInfo" component={CustomerInfo}/> */}
         {/* <Route path="/checkout" component={Checkout}/> */}
         {/* <Route path="/admin" component={Admin}/> */}
-        <img src="images/pizza_photo.png" alt="Pizza yum"/>
-        <p>Pizza is great.</p>
         </Router>
       </div>
     );

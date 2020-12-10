@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PizzaListItem from '../PizzaListItem/PizzaListItem';
 
 // Redux stuff
 import { connect } from 'react-redux';
@@ -7,11 +8,11 @@ import { connect } from 'react-redux';
 class PizzaList extends Component {
 
 state = {
-    pizza: []
+    pizzaPie: []
 }
 
 componentDidMount() { 
-this.getPizza();  
+    this.getPizza(); 
 }
 
  getPizza = () => {
@@ -21,7 +22,7 @@ this.getPizza();
     }).then( ( response ) => {
       console.log('back from GET:', response.data);
       this.setState({
-          pizza: response.data
+          pizzaPie: response.data
       })
     }).catch(( err ) => {
       console.log( err );
@@ -30,13 +31,18 @@ this.getPizza();
   }// end getPizza
 
 
-    render() {
-        return (
-            <div>
-                <h1>Hello from PizzaList</h1>
-            </div>
-        )
-    }
+render(){
+    console.log(this.state)
+    return(
+        <div>
+        {this.state.pizzaPie.map((pizza, i) => {
+            return(
+                <PizzaListItem key={i} pizza={pizza}/>
+            )
+        })}
+        </div>
+    )
+}
 }
 
 const putStateOnProps = (reduxState) => ({reduxState});
