@@ -30,6 +30,11 @@ componentDidMount() {
     }) // end axios
   }// end getPizza
 
+goToCustomerInfo = () => {
+  console.log('Next button working');
+  this.props.history.push('/customerInfo');
+}
+
 
 render(){
     console.log(this.state)
@@ -40,6 +45,8 @@ render(){
                 <PizzaListItem key={i} pizza={pizza}/>
             )
         })}
+        <br></br>
+          <button onClick={this.goToCustomerInfo}>Next</button>
         </div>
     )
 }
