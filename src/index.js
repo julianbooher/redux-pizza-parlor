@@ -18,22 +18,23 @@ const checkoutReducer = (state = [], action) => {
         let returnState = state.filter(pizza => pizza.id !== action.payload)
         return [...returnState]
     }
-
     return state
 };
 
 
 
-const contactInfoReducer = (state = [], action) => {
+const customerInfoReducer = (state = [], action) => {
     //TODO action types
-
+    if(action.type === 'ADD_NEW_CUSTOMER'){
+        return [action.payload];
+    }
     return state
 };
 
 const storeInstance = createStore(
     combineReducers({
         checkoutReducer,
-        contactInfoReducer
+        customerInfoReducer
     }), applyMiddleware(logger)
 
 );
