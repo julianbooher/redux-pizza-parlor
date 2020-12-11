@@ -26,7 +26,7 @@ const checkoutReducer = (state = [], action) => {
 const customerInfoReducer = (state = [], action) => {
     //TODO action types
     if(action.type === 'ADD_NEW_CUSTOMER'){
-        return [action.payload];
+        return action.payload;
     }
     return state
 };

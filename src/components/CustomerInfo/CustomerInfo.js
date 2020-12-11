@@ -36,7 +36,7 @@ class CustomerInfo extends Component {
     render() {
         return (
             <div>
-                {JSON.stringify(this.state.newCustomer)}
+                
                 <form onSubmit={this.addNewCustomer}>
                     <input required placeholder="Name"
                         value={this.state.newCustomer.name}
